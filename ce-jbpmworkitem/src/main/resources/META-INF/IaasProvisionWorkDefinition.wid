@@ -1,0 +1,19 @@
+import org.drools.core.process.core.datatype.impl.type.StringDataType;
+import com.bah.cloudengine.domain.SingleOrder;
+import org.drools.core.process.core.datatype.impl.type.ObjectDataType;
+[
+ [
+  "name" : "IaasProvision",
+  "parameters" :[
+    "OrderObject" : new ObjectDataType(),
+    "BrokerURL" : new StringDataType(),
+    "queue" : new StringDataType(),
+    "username" : new StringDataType(),
+    "password" : new StringDataType(),
+
+  ],
+  "displayName" : "IaasProvision",
+  "icon" : "defaultlogicon.gif",
+  "defaultHandler" : "com.bah.cloudengine.jbpmworkitem.IaasProvisionWorkItemHandler",
+ ]
+]

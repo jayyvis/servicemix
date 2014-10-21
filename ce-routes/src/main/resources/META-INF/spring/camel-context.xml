@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- Configures the Camel Context-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/osgi-compendium http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       ">
+    <!-- Scans base package for annotated components-->
+    <context:component-scan base-package="com.bah.cloudengine"/>
+    <!-- Getting the properties from OSGi container-->
+    <osgix:cm-properties id="cloudengineProperties" persistent-id="com.bah.cloudengine"/>
+    <!-- Injecting the properties file in Spring Container -->
+    <context:property-placeholder properties-ref="cloudengineProperties"/>
+
+    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="brokerURL" value="failover:tcp://localhost:61616"/>
+        <property name="userName" value="${activemq.user}"/>
+        <property name="password" value="${activemq.password}"/>
+    </bean>
+
+  <!--&lt;!&ndash; Start of jetty basic authentication service definitions&ndash;&gt;-->
+    <!--<bean id="loginService" class="org.eclipse.jetty.plus.jaas.JAASLoginService">-->
+        <!--<property name="name" value="karaf"/>-->
+        <!--<property name="loginModuleName" value="karaf"/>-->
+        <!--<property name="roleClassNames">-->
+            <!--<list>-->
+                <!--<value>org.apache.karaf.jaas.boot.principal.RolePrincipal</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--<bean id="identityService" class="org.eclipse.jetty.security.DefaultIdentityService"/>-->
+    <!--<bean id="constraint" class="org.eclipse.jetty.util.security.Constraint">-->
+        <!--<property name="name" value="BASIC"/>-->
+        <!--<property name="roles" value="admin"/>-->
+        <!--<property name="authenticate" value="true"/>-->
+    <!--</bean>-->
+    <!--<bean id="constraintMapping" class="org.eclipse.jetty.security.ConstraintMapping">-->
+        <!--<property name="constraint" ref="constraint"/>-->
+        <!--<property name="pathSpec" value="/*"/>-->
+    <!--</bean>-->
+    <!--<bean id="securityHandler" class="org.eclipse.jetty.security.ConstraintSecurityHandler">-->
+        <!--<property name="authenticator">-->
+            <!--<bean class="org.eclipse.jetty.security.authentication.BasicAuthenticator"/>-->
+        <!--</property>-->
+        <!--<property name="constraintMappings">-->
+            <!--<list>-->
+                <!--<ref bean="constraintMapping"/>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="loginService" ref="loginService"/>-->
+        <!--<property name="strict" value="false"/>-->
+        <!--<property name="identityService" ref="identityService"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; End of jetty basic authentication service definitions&ndash;&gt;-->
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring" streamCache="true">
+
+
+        <contextScan/>
+    </camelContext>
+
+
+
+</beans>

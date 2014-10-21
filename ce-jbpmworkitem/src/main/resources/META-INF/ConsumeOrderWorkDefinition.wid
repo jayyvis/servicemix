@@ -1,0 +1,21 @@
+import org.drools.core.process.core.datatype.impl.type.StringDataType;
+import com.bah.cloudengine.domain.SingleOrder;
+import org.drools.core.process.core.datatype.impl.type.ObjectDataType;
+[
+ [
+  "name" : "ConsumeOrder",
+  "parameters" :[
+    "brokerURL" : new StringDataType(),
+    "username" : new StringDataType(),
+    "password" : new StringDataType(),
+    "incomingQueue" : new StringDataType(),
+
+  ],
+   "results" : [
+      "singleOrderOut" : new ObjectDataType(),
+    ],
+  "displayName" : "ConsumeOrder",
+  "icon" : "defaultlogicon.gif",
+  "defaultHandler" : "com.bah.cloudengine.jbpmworkitem.ConsumeOrderWorkItemHandler",
+ ]
+]
