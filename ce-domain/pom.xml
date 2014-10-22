@@ -5,11 +5,11 @@
     <parent>
         <artifactId>cloudengine-all</artifactId>
         <groupId>com.bah.cloudengine</groupId>
-        <version>1.0.3</version>
+        <version>0.1.1</version>
     </parent>
 
   <artifactId>ce-domain</artifactId>
-  <version>1.0.3</version>
+  <version>0.1.1</version>
   <packaging>bundle</packaging>
 
     <name>ce-domain</name>

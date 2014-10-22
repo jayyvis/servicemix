@@ -25,12 +25,12 @@
     <parent>
         <artifactId>cloudengine-all</artifactId>
         <groupId>com.bah.cloudengine</groupId>
-        <version>1.0.3</version>
+        <version>0.1.1</version>
     </parent>
 
     <artifactId>ce-routes</artifactId>
     <packaging>bundle</packaging>
-    <version>1.0.3</version>
+    <version>0.1.1</version>
 
     <name>Cloud Engine Camel Routes</name>
     <!--<url>http://www.boozallen.com</url>-->
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>com.bah.cloudengine</groupId>
             <artifactId>ce-domain</artifactId>
-            <version>1.0.3</version>
+            <version>0.1.1</version>
         </dependency>
 
         <dependency>
