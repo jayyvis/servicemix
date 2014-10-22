@@ -6,7 +6,7 @@
     <packaging>pom</packaging>
     <groupId>com.bah.cloudengine</groupId>
     <artifactId>cloudengine-all</artifactId>
-    <version>1.0.3</version>
+    <version>0.1.1</version>
 
   <modules>
       <module>ce-domain</module>
